@@ -8,7 +8,19 @@ let notes = ["banana", "rasen mähen"];
 function renderNotes() {
     // -> I need to define where they should be displayed
     let contentRef = document.getElementById('content');
-    contentRef.innerHTML = notes;
+    contentRef.innerHTML = "";
+    
+    for (let i = 0; i < notes.length; i++) {
+        const note = notes[i];
+        contentRef.innerHTML += getNoteTemplate(note);
+    }
+
+}
+
+function getNoteTemplate(note) {
+    return /*html*/`
+        <p>+ ${note}</p>
+    `;
 }
 
 // add notes
