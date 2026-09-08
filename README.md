@@ -20,9 +20,9 @@ The project is intended for educational purposes only and is not planned for pro
 
 ## Project Status
 
-> **Current Status:** Initial project setup
+> **Current Status:** In Progress
 
-The basic folder and file structure has been created.
+Currently working through the individual exercise steps.
 
 <!--
 PROJECT STATUS:
