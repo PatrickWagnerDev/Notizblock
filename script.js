@@ -11,15 +11,14 @@ function renderNotes() {
     contentRef.innerHTML = "";
 
     for (let i = 0; i < notes.length; i++) {
-        const note = notes[i];
-        contentRef.innerHTML += getNoteTemplate(note);
+        contentRef.innerHTML += getNoteTemplate(i);
     }
 
 }
 
 function getNoteTemplate(note) {
     return /*html*/`
-        <p>+ ${note}</p>
+        <p>+ ${notes[note]} <button onclick="deleteNote(${note})">X</button></p>
     `;
 }
 
@@ -40,6 +39,15 @@ function addNote() {
     noteInputRef.value = "";
 }
 
-
 // delete notes
+function deleteNote(indexNote) {
+    // -> which note needs to be deleted?
+    notes.splice(indexNote, 1);
+
+    // -> when should the note be deleted? -> done
+
+    // -> update the display
+    renderNotes();
+}
+
 // archive notes
