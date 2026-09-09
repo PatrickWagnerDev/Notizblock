@@ -20,9 +20,7 @@ The project is intended for educational purposes only and is not planned for pro
 
 ## Project Status
 
-> **Current Status:** In Progress
-
-Currently working through the individual exercise steps.
+> **Current Status:** Completed
 
 <!--
 PROJECT STATUS:
