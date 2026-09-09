@@ -18,6 +18,7 @@ function renderNotes() {
 
 function getNoteTemplate(note) {
     return /*html*/`
+        <h3>Title: ${notesTitle[note]}</h3>
         <p>+ ${notes[note]} <button onclick="pushToArchiv(${note})">X</button></p>
     `;
 }
@@ -43,7 +44,9 @@ function addNote() {
 function pushToArchiv(indexNote) {
     // -> which note needs to be deleted?
     let trashNote = notes.splice(indexNote, 1);
-    trashNotes.push(trashNote);
+    trashNotes.push(trashNote[0]);
+    let trashNoteTitle = notesTitle.splice(indexNote, 1);
+    trashNotesTitle.push(trashNoteTitle[0]);
     // -> when should the note be deleted? -> done
 
     // -> update the display
@@ -66,18 +69,26 @@ function renderTrashNotes() {
 
 function getTrashNoteTemplate(note) {
     return /*html*/`
+        <h3>Title: ${trashNotesTitle[note]}</h3>
         <p>+ ${trashNotes[note]} <button onclick="deleteNote(${note})">X</button> <button onclick="recoverNote(${note})">+</button></p>
     `;
 }
 
 function deleteNote(indexNote) {
-    let trashNote = trashNotes.splice(indexNote, 1);
+    trashNotes.splice(indexNote, 1);
+    trashNotesTitle.splice(indexNote, 1);
     renderTrashNotes();
 }
 
 function recoverNote(indexNote) {
     let note = trashNotes.splice(indexNote, 1);
     notes.push(note);
+    let noteTitle = trashNotesTitle.splice(indexNote, 1);
+    notesTitle.push(noteTitle);
     renderNotes();
     renderTrashNotes();
 }
+
+// add Notes title
+let notesTitle = ['ba', 'Aufgabe'];
+let trashNotesTitle = [];
